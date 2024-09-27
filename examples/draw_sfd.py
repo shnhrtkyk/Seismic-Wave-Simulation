@@ -107,13 +107,13 @@ def save_png_xz(sfd_x: SFD, sfd_z: SFD, save_dir=None, figsize=None, dpi=None, v
     for i, t in enumerate(sfd_x.ts):
         print(f"\rprocess:{i + 1}/{sfd_x.nt}  runtime:{time.time() - start_time:.2f}s", end="")
         plot_frame_xz(sfd_x.data[i], sfd_z.data[i], fig, t, vmin=vmin, vmax=vmax,
-                      extent=[sfd_x.xmin, sfd_x.xmax, sfd_x.zmax, sfd_z.zmim]
+                      extent=[sfd_x.xmin, sfd_x.xmax, sfd_x.zmax, sfd_z.zmin]
         )
         plt.savefig(os.path.join(save_dir, f"{i}"))
         plt.cla()
         plt.clf()
     plot_frame_xz(sfd_x.data[i], sfd_z.data[i], fig, t, vmin=vmin, vmax=vmax,
-                  extent=[sfd_x.xmin, sfd_x.xmax, sfd_x.zmax, sfd_z.zmim]
+                  extent=[sfd_x.xmin, sfd_x.xmax, sfd_x.zmax, sfd_z.zmin]
     )
     plt.savefig(os.path.join(save_dir, f"{i}"))
 
